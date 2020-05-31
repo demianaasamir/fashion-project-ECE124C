@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+  <title>DADA  website for fasion </title>
+
+   <link rel="stylesheet" href="css/style.css" type="text/css" >
+
+   <meta charset="utf-8"/>
+  <meta name="description" content="DADA  &amp; this website is a small one to show you some fasions designs to help you to keep up with the times ">
+  
+  <style type="text/css">
+   body { 
+     margin: 0;
+  background-image:  url('https://media.gettyimages.com/photos/ladys-party-picture-id915655588?s=2048x2048');
+  font-family: Arial, Helvetica, sans-serif;}
+    
+.bar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.bar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.bar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.bar a.active {
+  background-color: #FFB6C1;
+  color: white;
+}
+  
+   
+ form {background-image: url(https://i.ibb.co/KFnVgpV/Pics-Art-05-22-06-50-49.jpg) ; position: absolute ; top: 15%; left: 10%;  width: 300px ; padding: 40px 40px ;background :ragba (0,0,0,0.6);  }
+ label { color: black ; font-weight: bold; }
+
+ .error_msg {color: black; font-weight: bold;}
+  </style>
+</head>
+<body>
+  <div class="bar">
+  <a class="active" href="dada0.html">Home</a>
+  <a href="dada1.html">Page 1</a>
+  <a href="dada2.html">Page 2</a>
+  <a href="dada3.html">Page 3</a>
+   <a href="dada4.html">Page 4</a>
+</div>
+
+<div style="padding-left:16px">
+<h1> Registration Form </h1>
+
+  <div id="error_msg"></div>
+
+  <form name="myForm" id="myForm" action="#"  method="post">
+    <label for="fname">First Name:</label> <br>
+    <input type="text" name="fname" id="fname" required=""> <br>
+
+    <label for="lname">Last Name:</label><br>
+    <input type="text" name="lname" id="lname" required><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" name="password" id="password" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" id="email" required><br>
+
+    <label for="mobile">Mobile Number:</label><br>
+    <input type="tel" name="mobile" id="mobile" pattern="[0-9]+" required><br>
+
+    <label for="address">Address:</label><br>
+    <input type="text" name="address" id="address" required><br>
+
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+    
+    <input type="submit" value="Submit" id="smit">
+  </form>
+  <script>
+    function formvalidate(event){
+    //removed console log because that only works in ie
+    // when debugging
+      let errors = []
+      var pn = document.getElementById("mobile").value;
+      if(mobile.length != 11){
+         errors.push("Mobile Number must be 11 digits.");
+      }
+
+      var pw = document.getElementById("password").value;
+      regex = /(?=\S)([A-Z](?=.*\d)[a-zA-Z0-9*\-_#&*]{7,7})/
+      if (!pw.match(regex) || pw.length != 8) {
+        errors.push("The password must start with an uppercase character, must be exactly 8 characters and at least include one digit and one special characters with no white spaces allowed.");
+      }
+      if (errors.length>0) {
+        alert(errors.join("\n"));
+        if(event.preventDefault){ event.preventDefault()}; 
+        if(window.event){window.event.returnValue = false;}
+      }
+
+    }
+    var smit=document.getElementById("myForm");
+    if(smit.addEventListener){
+        smit.addEventListener("submit",formvalidate,false);
+    }else{
+        //ie doesn't have addEventListner
+        smit.attachEvent('onsubmit', formvalidate);
+    }
+  </script>
+</body>
+</html>
